@@ -9,6 +9,8 @@
 //  </div >
 // And add it to the DOM in the .header-container component
 
+
+
 const headerContainer= document.querySelector('.header-container');
 
 headerContainer.appendChild(Header());
@@ -17,10 +19,10 @@ function Header() {
 
     // creating DOM elements
 
-    const headerDiv= document.querySelector('div');
-    const span= document.querySelector('span');
-    const h1= document.querySelector('h1');
-    const span2= document.querySelector('span');
+    const headerDiv= document.createElement('div');
+    const span= document.createElement('span');
+    const h1= document.createElement('h1');
+    const span2= document.createElement('span');
 
     // adding classes
 
