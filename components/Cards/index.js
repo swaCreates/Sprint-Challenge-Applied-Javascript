@@ -18,9 +18,17 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 
+const cardsContainer= document.querySelector('.cards-container');
+
+// cardsContainer.appendChild(articleComponent(res.data.articles.bootstrap))
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles').then(function(res){
-    console.log(res);
+    console.log(res.data.articles)
+    cardsContainer.appendChild(articleComponent(res.data.articles.javascript));
+    cardsContainer.appendChild(articleComponent(res.data.articles.bootstrap))
+    cardsContainer.appendChild(articleComponent(res.data.articles.technology))
+    cardsContainer.appendChild(articleComponent(res.data.articles.jquery))
+    cardsContainer.appendChild(articleComponent(res.data.articles.node))
 })
 
 function articleComponent(obj){
@@ -43,9 +51,9 @@ function articleComponent(obj){
 
     // adding textContent
 
-    // headLineDiv.textContent= 
-    // img.src=
-    // span.textContent=
+    headLineDiv.textContent= obj.headline;
+    img.src= obj.authorPhoto;
+    span.textContent= obj.authorName;
 
     // appending content
 
@@ -54,5 +62,8 @@ function articleComponent(obj){
     authorDiv.appendChild(imgContainer);
     imgContainer.appendChild(img);
     authorDiv.appendChild(span);
+
+
+    return cardDiv;
 
 }
